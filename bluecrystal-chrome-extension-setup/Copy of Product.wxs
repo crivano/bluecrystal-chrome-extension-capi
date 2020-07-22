@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="Assijus Chrome Extension" Language="1033" Version="1.0.0.0" Manufacturer="TRF2 - Trubunal Regional Federal da 2a Regiao" UpgradeCode="fabf399a-24c0-4a38-9777-06993574075d">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" />
+
+    <MajorUpgrade DowngradeErrorMessage="Uma versao mais nova de [ProductName] ja esta instalada." />
+    <MediaTemplate />
+
+    <Feature Id="ProductFeature" Title="Assijus Chrome Extension" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="Assijus Chrome Extension" />
+      </Directory>
+    </Directory>
+  </Fragment>
+
+  <Fragment>
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="AssijusExe" Guid="b4bcc834-369a-4ce6-8a93-1b6d5763ec68">
+        <File Source="$(var.assijus-chrome-extension.TargetPath)" />
+      </Component>
+      <Component Id="AssijusManifes" Guid="b0f4eb36-498f-4c8b-910f-ce881085786e">
+        <File Source="$(var.assijus-chrome-extension.ProjectDir)\manifest.json" />
+      </Component>
+      <Component Id="AssijusRegistryEntries" Guid="c42d264a-177a-45fd-ab71-763e7ae660e0">
+        <RegistryKey Root="HKCU"
+                     Key="Software\Google\Chrome\NativeMessagingHosts\br.jus.trf2.assijus"
+              ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+          <RegistryValue Type="string" Value="[INSTALLFOLDER]manifest.json"/>
+        </RegistryKey>
+        <RegistryKey Root="HKCU"
+                     Key="Software\Google\Chrome\Extensions\ifabfihopbhogohngopafekijckmpmka"
+              ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+          <RegistryValue Type="string" Name="update_url" Value="https://clients2.google.com/service/update2/crx"/>
+        </RegistryKey>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>

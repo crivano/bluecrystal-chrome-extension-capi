@@ -1,0 +1,9 @@
+﻿{
+  "name": "com.ittru.bluecrystal",
+  "description": "BlueCrystal Chrome Extension",
+  "path": "bluecrystal-chrome-extension.exe",
+  "type": "stdio",
+  "allowed_origins": [
+    "chrome-extension://aieljmkpabepbkpdpdogcflbccegfkmh/", "chrome-extension://ifabfihopbhogohngopafekijckmpmka/"
+  ]
+}

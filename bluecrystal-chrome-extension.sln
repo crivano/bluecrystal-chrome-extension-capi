@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "bluecrystal-chrome-extension", "bluecrystal-chrome-extension\bluecrystal-chrome-extension.vbproj", "{05200A3F-666C-47B4-AB68-DBDEAEB4DD40}"
+EndProject
+Project("{930C7802-8A8C-48F9-8165-68863BCCD9DD}") = "bluecrystal-chrome-extension-setup", "bluecrystal-chrome-extension-setup\bluecrystal-chrome-extension-setup.wixproj", "{13979927-C92A-499E-940E-6E8C5EF1D476}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{05200A3F-666C-47B4-AB68-DBDEAEB4DD40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{05200A3F-666C-47B4-AB68-DBDEAEB4DD40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{05200A3F-666C-47B4-AB68-DBDEAEB4DD40}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{05200A3F-666C-47B4-AB68-DBDEAEB4DD40}.Debug|x86.Build.0 = Debug|Any CPU
+		{05200A3F-666C-47B4-AB68-DBDEAEB4DD40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{05200A3F-666C-47B4-AB68-DBDEAEB4DD40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{05200A3F-666C-47B4-AB68-DBDEAEB4DD40}.Release|x86.ActiveCfg = Release|Any CPU
+		{05200A3F-666C-47B4-AB68-DBDEAEB4DD40}.Release|x86.Build.0 = Release|Any CPU
+		{13979927-C92A-499E-940E-6E8C5EF1D476}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{13979927-C92A-499E-940E-6E8C5EF1D476}.Debug|x86.ActiveCfg = Debug|x86
+		{13979927-C92A-499E-940E-6E8C5EF1D476}.Debug|x86.Build.0 = Debug|x86
+		{13979927-C92A-499E-940E-6E8C5EF1D476}.Release|Any CPU.ActiveCfg = Release|x86
+		{13979927-C92A-499E-940E-6E8C5EF1D476}.Release|x86.ActiveCfg = Release|x86
+		{13979927-C92A-499E-940E-6E8C5EF1D476}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

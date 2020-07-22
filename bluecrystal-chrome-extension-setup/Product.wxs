@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+  <Product Id="*" Name="BlueCrystal Chrome Extension" Language="1033" Version="1.4.0.0" Manufacturer="Ittru" UpgradeCode="3e36b03f-e3f3-4331-a126-267bba289fa4">
+    <Package InstallerVersion="200" Compressed="yes" InstallScope="perUser" InstallPrivileges="limited" />
+
+    <MajorUpgrade DowngradeErrorMessage="Uma versao mais nova de [ProductName] ja esta instalada." />
+    <MediaTemplate  EmbedCab="yes"/>
+    
+    <Feature Id="ProductFeature" Title="BlueCrystal Chrome Extension" Level="1">
+      <ComponentGroupRef Id="ProductComponents" />
+    </Feature>
+  </Product>
+
+  <Fragment>
+    <Directory Id="TARGETDIR" Name="SourceDir">
+      <Directory Id="LocalAppDataFolder">
+        <Directory Id="INSTALLFOLDER" Name="BlueCrystal Chrome Extension"/>
+      </Directory>
+    </Directory>
+
+    <ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+      <Component Id="BlueCrystalChromeExtension" Guid="6740756b-f6e6-48df-b76d-d1c05329f89e">
+        <CreateFolder/>
+        <RemoveFolder Id="RemoveAppRootDirectory" On="uninstall" />
+        <File Source="$(var.bluecrystal-chrome-extension.TargetPath)" />
+        <File Source="$(var.bluecrystal-chrome-extension.ProjectDir)\manifest.json" />
+        <RegistryKey Root="HKCU" Key="Software\Ittru\BlueCrystal" ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+          <RegistryValue Name="Version" Value="[ProductVersion]" Type="string" KeyPath="yes"/>
+        </RegistryKey>
+        <RegistryKey Root="HKCU"
+                     Key="Software\Google\Chrome\NativeMessagingHosts\com.ittru.bluecrystal"
+              ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+          <RegistryValue Type="string" Value="[INSTALLFOLDER]manifest.json"/>
+        </RegistryKey>
+        <RegistryKey Root="HKCU"
+                     Key="Software\Google\Chrome\Extensions\aieljmkpabepbkpdpdogcflbccegfkmh"
+              ForceCreateOnInstall="yes" ForceDeleteOnUninstall="yes">
+          <RegistryValue Type="string" Name="update_url" Value="https://clients2.google.com/service/update2/crx"/>
+        </RegistryKey>
+      </Component>
+    </ComponentGroup>
+  </Fragment>
+</Wix>
