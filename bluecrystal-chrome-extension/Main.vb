@@ -90,7 +90,7 @@ Module Main
 
         Dim testresponse As New TestResponse
         testresponse.provider = "BlueCrystal Signer Extension"
-        testresponse.version = "1.4.0.0"
+        testresponse.version = "1.5.0.0"
         testresponse.status = "OK"
         Dim jsonOut As String = jsonSerializer.Serialize(testresponse)
 
@@ -187,8 +187,8 @@ Module Main
         Dim signresponse As New SignResponse
         If req.policy = "PKCS7" Then
             signresponse.sign = BluC.sign(99, req.payload)
-        ElseIf keySize < 2048 Then
-            signresponse.sign = BluC.sign("sha1", req.payload)
+            ' ElseIf keySize < 2048 Then
+            ' signresponse.sign = BluC.sign("sha1", req.payload)
         Else
             signresponse.sign = BluC.sign("sha256", req.payload)
         End If
